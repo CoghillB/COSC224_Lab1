@@ -1,1 +1,4 @@
-console.log('Happy developing ✨')
+// Functionality of HTML calculator
+
+// Variables
+let num1 = '';
