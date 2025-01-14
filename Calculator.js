@@ -20,3 +20,9 @@ document.querySelectorAll(".button.operator").forEach((button) => {
         }
     });
 });
+
+// Attach listener to the clear button
+document.querySelector(".button.clear").addEventListener("click", () => {
+    clearPressed();
+});
+
