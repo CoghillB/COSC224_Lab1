@@ -1,3 +1,19 @@
+let sum = 0;
+
+switch (operator) {
+    case "+":
+        sum += document.getElementById("display").innerText;
+        break;
+    case "-":
+        sum -= document.getElementById("display").innerText;
+        break;
+    case "*":
+        sum *= document.getElementById("display").innerText;
+        break;
+    case "/":
+        sum /= document.getElementById("display").innerText;
+}
+
 // Attach event listeners to buttons on page load
 window.onload = function () {
     // Attach listeners to number buttons
@@ -9,25 +25,10 @@ window.onload = function () {
     });
 }
 
-// Attach listeners to operator buttons
-document.querySelectorAll(".button.operator").forEach((button) => {
-    button.addEventListener("click", () => {
-        const operation = button.innerText;
-        if (operation === "=") {
-            equalsPressed();
-        } else {
-            operationPressed(operation);
-        }
-    });
-});
-
 // Attach listener to the clear button
 document.querySelector(".button.clear").addEventListener("click", () => {
     clearPressed();
 });
-
-// Attach listener to the decimal button
-
 
 // Function for when a number button is pressed
 function numberPressed(number) {
