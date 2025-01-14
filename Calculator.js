@@ -8,3 +8,15 @@ window.onload = function () {
         });
     });
 }
+
+// Attach listeners to operator buttons
+document.querySelectorAll(".button.operator").forEach((button) => {
+    button.addEventListener("click", () => {
+        const operation = button.innerText;
+        if (operation === "=") {
+            equalsPressed();
+        } else {
+            operationPressed(operation);
+        }
+    });
+});
