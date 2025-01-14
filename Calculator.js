@@ -34,3 +34,8 @@ function numberPressed(number) {
     console.log(`Number ${number} pressed`);
 }
 
+// Function for when equals button is pressed
+function equalsPressed() {
+    document.querySelector(".display").innerText = "0";
+}
+
