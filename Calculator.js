@@ -151,4 +151,3 @@ function equalsPressed() {
 function clearPressed() {
     clearCalculator();
 }
-
