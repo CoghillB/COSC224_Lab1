@@ -26,3 +26,11 @@ document.querySelector(".button.clear").addEventListener("click", () => {
     clearPressed();
 });
 
+// Attach listener to the decimal button
+
+
+// Function for when a number button is pressed
+function numberPressed(number) {
+    console.log(`Number ${number} pressed`);
+}
+
