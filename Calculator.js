@@ -46,6 +46,7 @@ function numberPressed(number) {
 }
 
 function operationPressed(operator) {
+    next = Number(document.getElementById("display").innerText);
     switch (lastOperator) {
         case "+":
             sum += next;
@@ -58,8 +59,11 @@ function operationPressed(operator) {
             break;
         case "/":
             sum /= next;
+            break;
+        default:
+            sum = next;
     }
-    next = Number(document.getElementById("display").innerText);
+
     lastOperator = operator;
     console.log(`operator=${operator}, sum=${sum}`);
     document.getElementById("display").innerText = "0";
