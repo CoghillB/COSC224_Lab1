@@ -1,42 +1,73 @@
-let sum = 0;
+let sum = Number(document.getElementById('display').innerText);
+let lastOperator = "";
+let next = 0;
+let $display;
 
-switch (operator) {
-    case "+":
-        sum += document.getElementById("display").innerText;
-        break;
-    case "-":
-        sum -= document.getElementById("display").innerText;
-        break;
-    case "*":
-        sum *= document.getElementById("display").innerText;
-        break;
-    case "/":
-        sum /= document.getElementById("display").innerText;
-}
+$(document).ready(function () {
+    $display = $("#display");
+    let sum = Number($display.text());
+    let lastOperator = "";
+    let next = 0;
 
-// Attach event listeners to buttons on page load
-window.onload = function () {
-    // Attach listeners to number buttons
-    document.querySelectorAll(".button.number").forEach((button) => {
-        button.addEventListener("click", () => {
-            const number = button.innerText;
-            numberPressed(number);
-        });
+    $(".button.number").on("click", function() {
+        const number = $(this).text();
+        numberPressed(number);
     });
+
+    $(".button.operator").on("click", function() {
+        const operation = $(this).text();
+        if (operation === "=") {
+            equalsPressed();
+        } else {
+            operationPressed(operation);
+        }
+    })
+
+    $(".button.clear").on("click", function() {
+        $display.text = "0";
+        sum = 0;
+        next = 0;
+        lastOperator = ""
+    })
+})
+
+let numberPressed = (number) => {
+    let display = $("#display");
+    if (display.text() === "0" && number !== ".") {
+        display.text(number);
+    } else {
+        // If the button is not a decimal, or if we do not already have a decimal
+        if (number !== "." || display.text().indexOf(".") === -1) {
+            display.text(display.text() + number);
+        }
+    }
 }
 
-// Attach listener to the clear button
-document.querySelector(".button.clear").addEventListener("click", () => {
-    clearPressed();
-});
+let operationPressed = (operator) => {
+    next = Number($display.text());
 
-// Function for when a number button is pressed
-function numberPressed(number) {
-    console.log(`Number ${number} pressed`);
+    switch (lastOperator) {
+        case "+":
+            sum += next;
+            break;
+        case "-":
+            sum -= next;
+            break;
+        case "*":
+            sum *= next;
+            break;
+        case "/":
+            sum /= next;
+            break;
+        default:
+            sum = next;
+    }
+
+    lastOperator = operator;
+    $display.text("0");
 }
 
-// Function for when equals button is pressed
-function equalsPressed() {
-    document.querySelector(".display").innerText = "0";
+let equalsPressed = () => {
+    operationPressed("");
+    $display.text(sum);
 }
-

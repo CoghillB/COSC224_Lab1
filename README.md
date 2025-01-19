@@ -1,1 +1,1 @@
-This is an HTML Calculator created by Dale and Brayden as part of COSC224 Projects In Computer Science for Lab 1
+This is an HTML Calculator created by Dale Hendricks and Brayden Coghill as part of COSC224 Projects In Computer Science for Lab 1
