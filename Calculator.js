@@ -23,12 +23,13 @@ $(document).ready(function () {
         }
     })
 
-    $(".button.clear").on("click", function() {
-        $display.text = "0";
+    const resetCalculator = () => {
+        $display.text("0");
         sum = 0;
         next = 0;
-        lastOperator = ""
-    })
+        lastOperator = "";
+    }
+    $(".button.clear").on("click", resetCalculator);
 })
 
 let numberPressed = (number) => {
